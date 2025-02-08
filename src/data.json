@@ -1,0 +1,88 @@
+{
+  "name": "Soumil Sarkar",
+  "email": "soumilsarkar47007@gmail.com",
+  "phone": "+91 6380804601",
+  "bio": [
+    "Responsible for developing web applications and dynamic webpages as well as development and implementation of JavaScript scripting functionality in static webpages.",
+    "Skilled in React.js, Node js, Express.js, MongoDB, HTML, CSS, JavaScript, jQuery.",
+    "I am a very hardworking professional who believes that proper teamwork, communication and collaboration can solve any problem and create wonderful solutions.",
+    "I strive to achieve perfection in my work and motivate my teammates to do so as well."
+  ],
+  "role": "Software Engineer",
+  "skills": [
+    {
+      "name": "HTML",
+      "icon": "https://wwww.google.com"
+    },
+    {
+      "name": "CSS",
+      "icon": "https://wwww.google.com"
+    },
+    {
+      "name": "JavaScript",
+      "icon": "https://wwww.google.com"
+    },
+    {
+      "name": "React.js",
+      "icon": "https://wwww.google.com"
+    },
+    {
+      "name": "Node.js",
+      "icon": "https://wwww.google.com"
+    },
+    {
+      "name": "Express.js",
+      "icon": "https://wwww.google.com"
+    },
+    {
+      "name": "MongoDB",
+      "icon": "https://wwww.google.com"
+    },
+    {
+      "name": "jQuery",
+      "icon": "https://wwww.google.com"
+    },
+    {
+      "name": "REST",
+      "icon": "https://wwww.google.com"
+    },
+    {
+      "name": "TypeScript",
+      "icon": "https://wwww.google.com"
+    }
+  ],
+  "employmentHistory": [
+    {
+      "company": "Indegene",
+      "roles": [
+        {
+          "role": "Software Engineer",
+          "startDate": "Oct 2023",
+          "endDate": null,
+          "description": ["I am a Software Engineer."]
+        },
+        {
+          "role": "Junior Software Engineer",
+          "startDate": "Aug 2021",
+          "endDate": "Sep 2023",
+          "description": ["I was a Junior Software Engineer."]
+        }
+      ]
+    }
+  ],
+  "educationHistory": [
+    {
+      "institute": "SRM IST Chennai",
+      "degree": "B. Tech, Computer Science and Engineering",
+      "startDate": "2017",
+      "endDate": "2021"
+    },
+    {
+      "institute": "Alok Public School",
+      "degree": "HSC - Science",
+      "startDate": "2016",
+      "endDate": "2017"
+    }
+  ],
+  "socialMediaLinks": []
+}
