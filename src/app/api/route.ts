@@ -11,8 +11,6 @@ export async function GET() {
 
   const portfolio = await getPortfolio();
 
-  console.log("--------In GET Request----------");
-
   return NextResponse.json({ portfolio });
 }
 
