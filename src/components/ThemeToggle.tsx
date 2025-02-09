@@ -1,7 +1,6 @@
 "use client";
 
 import useIsMounted from "@/hooks/useIsMounted";
-// import { setCookie } from "cookies-next";
 import { useTheme } from "next-themes";
 
 export default function ThemeToggle() {
