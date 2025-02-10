@@ -1,8 +1,8 @@
 import PortfolioModel from "@/models/portfolio";
 import { Portfolio } from "@/types";
 
-export async function getPortfolio(): Promise<Portfolio> {
-  const portfolio = await PortfolioModel.findOne({});
+export async function getPortfolio(): Promise<Portfolio | null> {
+  const portfolio: Portfolio | null = await PortfolioModel.findOne({});
   return portfolio;
 }
 

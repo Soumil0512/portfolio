@@ -37,7 +37,7 @@ export interface SocialMediaLink {
 
 export type SocialMediaLinks = SocialMediaLink[];
 
-export interface Portfolio extends Document {
+export type Portfolio = {
   name: string;
   email: string;
   phone: string;
@@ -47,4 +47,10 @@ export interface Portfolio extends Document {
   employmentHistory: EmploymentHistory;
   educationHistory: EducationHistory;
   socialMediaLinks: SocialMediaLinks;
-}
+};
+
+export interface PortfolioDocument extends Portfolio, Document {}
+
+export type PortfolioProps = {
+  portfolio: Portfolio;
+};

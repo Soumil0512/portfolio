@@ -2,3 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-primary: #d4f1f4;
+  --color-secondary: #189ab4;
+  --color-accent: #75e6da;
+  --color-accent2: #05445e;
+}
+
+html.dark {
+  --color-primary: #05445e;
+  --color-secondary: #189ab4;
+  --color-accent: #75e6da;
+  --color-accent2: #05445e;
+}

@@ -8,7 +8,15 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: "var(--color-primary)",
+        secondary: "var(--color-secondary)",
+        accent: "var(--color-accent)",
+        accent2: "var(--color-accent2)",
+      
+      },
+    },
   },
   plugins: [],
 } satisfies Config;

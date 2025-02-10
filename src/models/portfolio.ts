@@ -1,7 +1,7 @@
 import {
   Education,
   Employment,
-  Portfolio,
+  PortfolioDocument,
   Role,
   Skill,
   SocialMediaLink,
@@ -79,7 +79,7 @@ const SocialMediaLinkSchema = new Schema<SocialMediaLink>({
   },
 });
 
-const PortfolioSchema = new Schema<Portfolio>({
+const PortfolioSchema = new Schema<PortfolioDocument>({
   name: {
     type: String,
     required: true,
