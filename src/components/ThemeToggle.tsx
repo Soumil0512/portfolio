@@ -2,11 +2,14 @@
 
 import useIsMounted from "@/hooks/useIsMounted";
 import { useTheme } from "next-themes";
+import Link from "next/link";
 import { FaMoon } from "react-icons/fa";
 import { FiSun } from "react-icons/fi";
 import { GrStatusPlaceholder } from "react-icons/gr";
 
-const className = "group-hover:text-accent";
+// const buttonClassName = "group p-2 justify-center";
+const buttonClassName = "flex items-center group p-2";
+const iconClassName = "group-hover:text-accent text-2xl";
 
 export default function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
@@ -20,18 +23,18 @@ export default function ThemeToggle() {
   if (!isMounted)
     // return null;
     return (
-      <button className="group p-2">
-        <GrStatusPlaceholder className="text-transparent" />
-      </button>
+      <Link href="" className={buttonClassName}>
+        <GrStatusPlaceholder className="text-2xl text-transparent" />
+      </Link>
     );
 
   return (
-    <button onClick={handleThemeChange} className="group p-2">
+    <Link href="" onClick={handleThemeChange} className={buttonClassName}>
       {resolvedTheme === "light" ? (
-        <FiSun className={className} />
+        <FiSun className={iconClassName} />
       ) : (
-        <FaMoon className={className} />
+        <FaMoon className={iconClassName} />
       )}
-    </button>
+    </Link>
   );
 }
