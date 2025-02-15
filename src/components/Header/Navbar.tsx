@@ -10,11 +10,11 @@ import ThemeToggle from "../ThemeToggle";
 import Brand from "./Brand";
 import NavLinks from "./Navlinks";
 import useIsMounted from "@/hooks/useIsMounted";
-import { OnClickEventProps } from "@/types";
+import { OnClickEventProps, Portfolio } from "@/types";
 
 // TODO: Fix the hamburger icon getting overlapped by menuissue
 
-export default function Navbar({ name }: { name: string }) {
+export default function Navbar({ name }: { name: Portfolio["name"] }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = (e: OnClickEventProps) => {

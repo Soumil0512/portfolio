@@ -1,11 +1,11 @@
-import { PortfolioProps } from "@/types";
+import { Portfolio } from "@/types";
 import Navbar from "./Navbar";
 
-export default function Header({ portfolio }: PortfolioProps) {
+export default function Header({ name }: { name: Portfolio["name"] }) {
   return (
     <>
-      <header className="sticky top-0 bg-secondary text-primary flex gap-4 justify-between p-3">
-        <Navbar name={portfolio.name} />
+      <header className="sticky top-0 flex justify-between gap-4 bg-secondary p-3 text-primary">
+        <Navbar name={name} />
       </header>
       <div id="nav-toggle-wrapper"></div>
     </>

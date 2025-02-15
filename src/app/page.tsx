@@ -1,6 +1,6 @@
 import Bio from "@/components/Bio/Bio";
-import Contact from "@/components/Contact/Contact";
 import Header from "@/components/Header/Header";
+import Skills from "@/components/Skills/Skills";
 import { Portfolio } from "@/types";
 
 export default async function HomePage() {
@@ -14,11 +14,11 @@ export default async function HomePage() {
 
   return (
     <div className="duration-400 flex w-[100%] flex-col bg-primary text-secondary transition-colors delay-150">
-      <Header portfolio={portfolio} />
+      <Header name={portfolio.name} />
       <div id="ham-nav-wrapper" className="flex"></div>
       <div className="p-4">
-        <Bio bio={portfolio.bio} role={portfolio.role} />
-        <Contact email={portfolio.email} />
+        <Bio bio={portfolio.bio} role={portfolio.role} email={portfolio.email} />
+        <Skills skills={portfolio.skills} />
         <p>---------------------------------------</p>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae nunc

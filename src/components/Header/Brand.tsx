@@ -15,7 +15,7 @@ export default function Brand({
       onClick={(e) => {
         handleCloseToggle(e);
       }}
-      className="flex items-center rounded p-2 text-3xl hover:bg-accent hover:text-accent2 md:text-2xl"
+      className="flex items-center rounded p-2 text-3xl font-bold hover:bg-accent hover:text-accent2 md:text-2xl"
     >
       {name}
     </Link>
