@@ -54,3 +54,5 @@ export interface PortfolioDocument extends Portfolio, Document {}
 export type PortfolioProps = {
   portfolio: Portfolio;
 };
+
+export type OnClickEventProps = MouseEvent<HTMLAllCollection | HTMLButtonElement>;
