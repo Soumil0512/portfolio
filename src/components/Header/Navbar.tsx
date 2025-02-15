@@ -1,84 +1,28 @@
 "use client";
 
+import { createPortal } from "react-dom";
+import { MouseEvent, useEffect, useState } from "react";
 import Link from "next/link";
-import { HTMLAttributes, MouseEvent, useEffect, useState } from "react";
 
-import { MdAccountCircle } from "react-icons/md";
-import { TbBulbFilled } from "react-icons/tb";
-import { IoBriefcase, IoShareSocial } from "react-icons/io5";
-import { FaUniversity } from "react-icons/fa";
+import { IoMdClose } from "react-icons/io";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 import ThemeToggle from "../ThemeToggle";
-import { createPortal } from "react-dom";
-import { IoMdClose } from "react-icons/io";
+import Brand from "./Brand";
+import NavLinks from "./Navlinks";
+import useIsMounted from "@/hooks/useIsMounted";
 
 // TODO: Fix the hamburger icon getting overlapped by menuissue
 
-const navLinksConfig = [
-  { href: "#bio", text: "Bio", key: "bio", icon: <MdAccountCircle /> },
-  { href: "#skills", text: "Skills", key: "skills", icon: <TbBulbFilled /> },
-  {
-    href: "#employment-history",
-    text: "Employment History",
-    key: "employmentHistory",
-    icon: <IoBriefcase />,
-  },
-  {
-    href: "#educational-history",
-    text: "Educational History",
-    key: "educationalHistory",
-    icon: <FaUniversity />,
-  },
-  {
-    href: "#social-media",
-    text: "Social Media",
-    key: "socialMediaLinks",
-    icon: <IoShareSocial />,
-  },
-];
-
-const NavLinks = ({
-  linkClassName,
-  isHamburger,
-  handleToggle,
-}: {
-  linkClassName: HTMLAttributes<HTMLDivElement>["className"];
-  isHamburger?: boolean;
-  handleToggle?: (e: MouseEvent) => void;
-}) => {
-  return (
-    <>
-      {navLinksConfig.map((navLinkOpts) => {
-        const { key, href, text, icon } = navLinkOpts;
-
-        const handleClick = (e: MouseEvent) => {
-          if (isHamburger && handleToggle) handleToggle(e);
-        };
-
-        return (
-          <Link
-            key={key}
-            href={href}
-            className={linkClassName || ""}
-            onClick={handleClick}
-          >
-            {icon}
-            {text}
-          </Link>
-        );
-      })}
-    </>
-  );
-};
-
-export default function Navbar() {
+export default function Navbar({ name }: { name: string }) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleToggle = (e: MouseEvent) => {
+  const handleToggle = (e: MouseEvent<HTMLAnchorElement>) => {
     e.stopPropagation();
     setIsOpen((prev) => !prev);
-  }
+  };
+
+  const { isMounted } = useIsMounted();
 
   useEffect(() => {
     function handleResize() {
@@ -102,32 +46,36 @@ export default function Navbar() {
 
   return (
     <>
-      {/* md:flex-col lg:flex-row md:justify-center md:text-center */}
+      <Brand name={name} handleToggle={handleToggle} />
       <div className="flex gap-4">
         <nav className="hidden gap-4 md:flex">
-          <NavLinks linkClassName="md:flex-col lg:flex-row md:justify-center md:text-center flex items-center gap-2 rounded p-2 hover:bg-accent hover:text-accent2 focus:bg-accent focus:text-accent2" />
+          <NavLinks linkClassName="md:flex-row md:justify-center md:text-center flex items-center gap-2 rounded p-2 hover:bg-accent hover:text-accent2" />
         </nav>
 
         <ThemeToggle />
-
-        <Link
-          href=""
-          className="fixed bottom-[50px] right-[40px] z-10 rounded-full bg-secondary p-2 hover:text-accent md:hidden"
-          onClick={handleToggle}
-        >
-          {isOpen ? <IoMdClose /> : <GiHamburgerMenu />}
-        </Link>
       </div>
+
+      {isMounted &&
+        document.querySelector("#nav-toggle-wrapper") &&
+        createPortal(
+          <Link
+            href=""
+            className="fixed bottom-[50px] right-[40px] z-10 rounded-full bg-secondary p-2 text-primary hover:text-accent md:hidden"
+            onClick={handleToggle}
+          >
+            {isOpen ? <IoMdClose /> : <GiHamburgerMenu />}
+          </Link>,
+          document.querySelector("#nav-toggle-wrapper") || document.body,
+        )}
 
       {isOpen &&
         document.querySelector("#ham-nav-wrapper") &&
         createPortal(
           <nav
             className="fixed flex h-screen w-[100%] flex-grow flex-col gap-4 pt-[80px] backdrop-blur-sm"
-            // onClick={handleToggle}
           >
             <NavLinks
-              linkClassName="w-[100%] flex items-center rounded gap-4 p-2 hover:bg-accent hover:text-accent2 focus:bg-accent focus:text-accent2 text-2xl"
+              linkClassName="w-[100%] flex items-center rounded gap-4 p-2 bg-secondary text-primary hover:text-accent text-2xl"
               isHamburger
               handleToggle={handleToggle}
             />
