@@ -32,11 +32,11 @@ const navLinksConfig = [
 export default function NavLinks({
   linkClassName,
   isHamburger,
-  handleToggle,
+  handleCloseToggle,
 }: {
   linkClassName: HTMLAttributes<HTMLDivElement>["className"];
   isHamburger?: boolean;
-  handleToggle?: (e: MouseEvent<HTMLAnchorElement>) => void;
+  handleCloseToggle?: (e: MouseEvent<HTMLAnchorElement>) => void;
 }) {
   return (
     <>
@@ -44,7 +44,7 @@ export default function NavLinks({
         const { key, href, text, icon } = navLinkOpts;
 
         const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
-          if (isHamburger && handleToggle) handleToggle(e);
+          if (isHamburger && handleCloseToggle) handleCloseToggle(e);
         };
 
         return (

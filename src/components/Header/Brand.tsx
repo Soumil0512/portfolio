@@ -6,7 +6,6 @@ export default function Brand({
   handleCloseToggle,
 }: {
   name: string;
-  handleToggle: (e: OnClickEventProps) => void;
   handleCloseToggle: (e: OnClickEventProps) => void;
 }) {
   return (

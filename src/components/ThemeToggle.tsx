@@ -29,7 +29,14 @@ export default function ThemeToggle() {
     );
 
   return (
-    <Link href="" onClick={handleThemeChange} className={buttonClassName}>
+    <Link
+      href=""
+      onClick={(e) => {
+        e.preventDefault();
+        handleThemeChange();
+      }}
+      className={buttonClassName}
+    >
       {resolvedTheme === "light" ? (
         <FiSun className={iconClassName} />
       ) : (

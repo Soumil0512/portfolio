@@ -24,7 +24,7 @@ export default function Navbar({ name }: { name: Portfolio["name"] }) {
 
   const handleCloseToggle = (e: OnClickEventProps) => {
     e.stopPropagation();
-    setIsOpen(false);
+    if (isOpen) setIsOpen(false);
   };
 
   const { isMounted } = useIsMounted();
@@ -53,7 +53,7 @@ export default function Navbar({ name }: { name: Portfolio["name"] }) {
     <>
       <Brand
         name={name}
-        handleToggle={handleToggle}
+        // handleToggle={handleToggle}
         handleCloseToggle={handleCloseToggle}
       />
       <div className="flex gap-4">
@@ -68,7 +68,7 @@ export default function Navbar({ name }: { name: Portfolio["name"] }) {
         document.querySelector("#nav-toggle-wrapper") &&
         createPortal(
           <button
-            className="fixed bottom-[60px] right-[30px] z-10 rounded-full bg-secondary p-2 text-primary hover:text-accent md:hidden"
+            className="fixed bottom-[60px] right-[30px] z-20 rounded-full bg-secondary p-2 text-primary hover:text-accent md:hidden"
             onClick={handleToggle}
           >
             {isOpen ? <IoMdClose /> : <GiHamburgerMenu />}
@@ -79,11 +79,14 @@ export default function Navbar({ name }: { name: Portfolio["name"] }) {
       {isOpen &&
         document.querySelector("#ham-nav-wrapper") &&
         createPortal(
-          <nav className="fixed flex h-screen w-[100%] flex-grow flex-col gap-4 pt-[80px] backdrop-blur-sm">
+          <nav
+            className="fixed flex h-screen w-[100%] flex-grow flex-col gap-4 pt-[80px] z-10 backdrop-blur-sm"
+            onClick={handleCloseToggle}
+          >
             <NavLinks
               linkClassName="w-[100%] flex items-center rounded gap-4 p-2 bg-secondary text-primary hover:text-accent text-2xl"
               isHamburger
-              handleToggle={handleToggle}
+              handleCloseToggle={handleCloseToggle}
             />
           </nav>,
           document.querySelector("#ham-nav-wrapper") || document.body,
