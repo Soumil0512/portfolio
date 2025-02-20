@@ -22,7 +22,7 @@ const navLinksConfig = [
     icon: <FaUniversity />,
   },
   {
-    href: "#socials",
+    href: "#contact",
     text: "Socials",
     key: "socialMediaLinks",
     icon: <IoShareSocial />,
