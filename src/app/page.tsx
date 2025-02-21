@@ -13,12 +13,19 @@ export default async function HomePage() {
 
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api`, {
     method: "GET",
+    headers: {
+      Authorization: `${process.env.AUTHORIZATION}`,
+    },
     signal: signal,
   });
 
-  const { portfolio }: { portfolio: Portfolio | null } = await res.json();
+  const {
+    isSuccess,
+    portfolio,
+  }: { isSuccess: boolean; portfolio: Portfolio | null } = await res.json();
 
-  if (!portfolio) throw new Error("Portfolio content missing!!!");
+  if (!isSuccess || !portfolio)
+    throw new Error("Please try again after some time!!!");
 
   return (
     <div className="duration-400 flex h-max w-full flex-col bg-primary text-secondary transition-colors delay-150 dark:text-accent">
