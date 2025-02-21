@@ -27,7 +27,7 @@ export default function Footer({
           <Link
             key={linkInfo.name}
             target="_blank"
-            href={linkInfo.link}
+            href={`${linkInfo.link}`}
             className="text-3xl hover:text-accent"
           >
             {SocialLinks[linkInfo.name]}

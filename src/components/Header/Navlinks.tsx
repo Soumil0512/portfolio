@@ -57,6 +57,7 @@ export default function NavLinks({
             {icon}
             {text}
           </Link>
+          // <></>
         );
       })}
     </>

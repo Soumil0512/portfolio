@@ -69,11 +69,11 @@ const EducationSchema = new Schema<Education>({
 });
 
 const SocialMediaLinkSchema = new Schema<SocialMediaLink>({
-  icon: {
+  link: {
     type: String,
     required: true,
   },
-  link: {
+  name: {
     type: String,
     required: true,
   },

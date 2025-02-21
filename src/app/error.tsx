@@ -7,7 +7,7 @@ type Props = {
 export default function HomeError({ error }: Props) {
   return (
     <>
-      <div>{error.message}</div>
+      <div>{error.message}<br /></div>
       <button onClick={() => window.location.reload()}>Retry</button>
     </>
   );

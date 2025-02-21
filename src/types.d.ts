@@ -31,8 +31,8 @@ export interface Education {
 export type EducationHistory = Education[];
 
 export interface SocialMediaLink {
-  name: string;
   link: string;
+  name: string;
 }
 
 export type SocialMediaLinks = SocialMediaLink[];
