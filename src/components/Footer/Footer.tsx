@@ -2,12 +2,11 @@ import { Portfolio } from "@/types";
 import Link from "next/link";
 import { ReactNode } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-
-const iconClassName = "";
+import ShareButton from "../ShareButton/ShareButton";
 
 const SocialLinks: { [key: string]: ReactNode } = {
-  github: <FaGithub className={iconClassName} />,
-  linkedin: <FaLinkedin className={iconClassName} />,
+  github: <FaGithub />,
+  linkedin: <FaLinkedin />,
 };
 
 export default function Footer({
@@ -18,7 +17,10 @@ export default function Footer({
   socialMediaLinks: Portfolio["socialMediaLinks"];
 }) {
   return (
-    <footer className="flex flex-row items-center justify-evenly bg-secondary p-2 text-primary">
+    <footer
+      id="contact"
+      className="flex flex-row items-center justify-evenly bg-secondary py-2 text-primary"
+    >
       <p className="font-semibold">Made by {name}</p>
       <div className="flex h-full flex-row items-center gap-3">
         {socialMediaLinks.map((linkInfo) => (
@@ -31,6 +33,7 @@ export default function Footer({
             {SocialLinks[linkInfo.name]}
           </Link>
         ))}
+        <ShareButton />
       </div>
     </footer>
   );

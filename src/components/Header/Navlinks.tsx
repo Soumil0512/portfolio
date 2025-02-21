@@ -23,7 +23,7 @@ const navLinksConfig = [
   },
   {
     href: "#contact",
-    text: "Socials",
+    text: "Contact",
     key: "socialMediaLinks",
     icon: <IoShareSocial />,
   },

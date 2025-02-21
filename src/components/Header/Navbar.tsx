@@ -12,8 +12,6 @@ import NavLinks from "./Navlinks";
 import useIsMounted from "@/hooks/useIsMounted";
 import { OnClickEventProps, Portfolio } from "@/types";
 
-// TODO: Fix the hamburger icon getting overlapped by menuissue
-
 export default function Navbar({ name }: { name: Portfolio["name"] }) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -36,10 +34,8 @@ export default function Navbar({ name }: { name: Portfolio["name"] }) {
       }
     }
 
-    // if (typeof window !== undefined)
     window.addEventListener("resize", handleResize);
     return () => {
-      // if (typeof window !== undefined)
       window.removeEventListener("resize", handleResize);
     };
   }, []);
@@ -50,12 +46,8 @@ export default function Navbar({ name }: { name: Portfolio["name"] }) {
   }, [isOpen]);
 
   return (
-    <>
-      <Brand
-        name={name}
-        // handleToggle={handleToggle}
-        handleCloseToggle={handleCloseToggle}
-      />
+    <div className="mx-auto flex max-w-[1024px] flex-row justify-between p-3 pl-2">
+      <Brand name={name} handleCloseToggle={handleCloseToggle} />
       <div className="flex gap-4">
         <nav className="hidden gap-4 md:flex">
           <NavLinks linkClassName="md:flex-row md:justify-center md:text-center flex items-center gap-2 rounded p-2 hover:bg-accent hover:text-accent2" />
@@ -80,7 +72,7 @@ export default function Navbar({ name }: { name: Portfolio["name"] }) {
         document.querySelector("#ham-nav-wrapper") &&
         createPortal(
           <nav
-            className="fixed flex h-screen w-[100%] flex-grow flex-col gap-4 pt-[80px] z-10 backdrop-blur-sm"
+            className="fixed z-10 flex h-screen w-[100%] flex-grow flex-col gap-4 pt-[80px] backdrop-blur-sm"
             onClick={handleCloseToggle}
           >
             <NavLinks
@@ -91,6 +83,6 @@ export default function Navbar({ name }: { name: Portfolio["name"] }) {
           </nav>,
           document.querySelector("#ham-nav-wrapper") || document.body,
         )}
-    </>
+    </div>
   );
 }

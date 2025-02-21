@@ -13,11 +13,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="scroll-smooth">
+    <html
+      lang="en"
+      suppressHydrationWarning
+      // className="overflow-x-hidden scroll-smooth"
+      className="scroll-smooth"
+    >
+      {/* <body className="overflow-x-hidden"> */}
       <body>
-        <ThemeProvider>
-          {children}
-        </ThemeProvider>
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );
